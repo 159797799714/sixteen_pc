@@ -1,0 +1,11 @@
+let app = {
+    baseUrl: '/api/',
+    wsUrl: 'wss://api.mufgncw.com:2346',
+}
+
+if (process.env.NODE_ENV == 'production') {
+    app.wsUrl = 'wss://api.mufgncw.com:2346'
+    app.baseUrl = 'https://api.mufgncw.com/api/'
+}
+
+export default app;
