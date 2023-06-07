@@ -8,7 +8,8 @@
                 MUFG
         </span>-->
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu" aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu"
+                aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="icon ion-md-menu"></i>
             </button>
 
@@ -22,21 +23,21 @@
                         <router-link class="nav-link" :to="exchange.url">{{ exchange.label }}</router-link>
                     </li>
 
-                    <li class="nav-item" >
+                    <li class="nav-item">
                         <router-link class="nav-link" :to="option.url">{{ option.label }}</router-link>
                     </li>
-                    <li class="nav-item" >
+                    <li class="nav-item">
                         <router-link class="nav-link" :to="second.url">{{ second.label }}</router-link>
                     </li>
 
                     <li class="nav-item" v-if="false">
                         <router-link class="nav-link" :to="market.url">{{ market.label }}</router-link>
                     </li>
-                    <li class="nav-item" >
+                    <li class="nav-item">
                         <router-link class="nav-link" :to="contract.url">{{ contract.label }}</router-link>
                     </li>
                     <li class="nav-item" v-if="true">
-                        <router-link class="nav-link" :to="purchase.url">{{purchase.label}}</router-link>
+                        <router-link class="nav-link" :to="purchase.url">{{ purchase.label }}</router-link>
                     </li>
                     <!-- <li class="nav-item">
                     <a href="/newProduct" class="nav-link" target="_blank">{{$t('common.newzone')}}</a>
@@ -46,7 +47,7 @@
                     <router-link class="nav-link" :to="application.url">{{ application.label }}</router-link>
           </li>-->
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="college.url">{{college.label}}</router-link>
+                        <router-link class="nav-link" :to="college.url">{{ college.label }}</router-link>
                     </li>
 
                     <li class="nav-item">
@@ -83,50 +84,62 @@
                 </ul>
                 <ul class="navbar-nav">
                     <!-- <li class="nav-item header-custom-icon">
-                    <a class="nav-link" href="#" id="clickFullscreen">
-                        <i class="icon ion-md-expand"></i>
-                    </a>
-          </li>-->
+                        <a class="nav-link" href="#" id="clickFullscreen">
+                            <i class="icon ion-md-expand"></i>
+                        </a>
+                    </li>-->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link sight-sense" href="javascript:changeSightSense()">
+                            夜晚模式
+                        </a>
+                    </li> -->
+
                     <li class="nav-item">
-                    <a class="nav-link sight-sense" href="javascript:changeSightSense()">
-                        夜晚模式
-                    </a>
-          </li>
+                        <theme-change />
+                    </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ nativeLang }}</a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">{{ nativeLang }}</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href @click.prevent="chooseNative(item.value)" v-for="(item, index) in langList" :key="index">{{ item.label }}</a>
+                            <a class="dropdown-item" href @click.prevent="chooseNative(item.value)"
+                                v-for="(item, index) in langList" :key="index">{{ item.label }}</a>
                         </div>
                     </li>
 
                     <template v-if="isLogin">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ wallet.label }}</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">{{ wallet.label }}</a>
                             <div class="dropdown-menu">
-                                <router-link class="dropdown-item" :to="item.url" v-for="(item,index) in wallet.links" :key="index">{{ item.label }}</router-link>
+                                <router-link class="dropdown-item" :to="item.url" v-for="(item, index) in wallet.links"
+                                    :key="index">{{ item.label }}</router-link>
                             </div>
                         </li>
                         <li class="nav-item dropdown" v-if="false">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ orders.label }}</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">{{ orders.label }}</a>
                             <div class="dropdown-menu">
-                                <router-link class="dropdown-item" :to="item.url" v-for="(item,index) in orders.links" :key="index">{{ item.label }}</router-link>
+                                <router-link class="dropdown-item" :to="item.url" v-for="(item, index) in orders.links"
+                                    :key="index">{{ item.label }}</router-link>
                             </div>
                         </li>
                         <!-- 新的消息 -->
                         <new-msg />
                         <li class="nav-item dropdown header-img-icon">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="getUserInfo">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" @click="getUserInfo">
                                 <img src="../assets/img/avatar.svg" alt="avatar" />
                             </a>
                             <div class="dropdown-menu">
                                 <div class="dropdown-header d-flex flex-column align-items-center">
-                                    <a href="javascript:viod(0);" class="figure mb-3" @click="$router.push(isLogin?'/wallet/assets/exchange':'/')">
+                                    <a href="javascript:viod(0);" class="figure mb-3"
+                                        @click="$router.push(isLogin ? '/wallet/assets/exchange' : '/')">
                                         <img src="../assets/img/avatar.svg" alt />
                                     </a>
                                     <div class="info text-center">
                                         <p class="name font-weight-bold mb-0" v-if="!userInfo.user_auth_level">
-                                            {{ $t('profile.noCertification')}}
+                                            {{ $t('profile.noCertification') }}
                                             <a href="#/profile/certification">{{ $t('common.goTo') }}</a>
                                         </p>
                                         <p class="name font-weight-bold mb-0" v-else-if="userInfo.user_auth_level === 1">
@@ -137,14 +150,14 @@
                                             {{ $t('profile.advancedCertification') }}
                                         </p>
                                         <div class="email text-muted mb-3">
-                                            <router-link to="/profile/index">{{signed.account}}</router-link>
-                                            <div>UID:{{signed.user_id}}</div>
+                                            <router-link to="/profile/index">{{ signed.account }}</router-link>
+                                            <div>UID:{{ signed.user_id }}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="dropdown-body">
                                     <ul class="profile-nav">
-                                        <li class="nav-item" v-for="(item,index) in dashboard" :key="index">
+                                        <li class="nav-item" v-for="(item, index) in dashboard" :key="index">
                                             <router-link :to="item.url" class="nav-link">
                                                 <i :class="[`icon`, item.icon]"></i>
                                                 <span>{{ item.label }}</span>
@@ -153,7 +166,7 @@
                                         <li class="nav-item">
                                             <a href @click.prevent="logout" class="nav-link">
                                                 <i class="icon ion-md-power"></i>
-                                                <span>{{$t('common.logOut')}}</span>
+                                                <span>{{ $t('common.logOut') }}</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -163,8 +176,10 @@
                     </template>
                     <template v-else>
                         <li class="nav-item dropdown no-login">
-                            <router-link to="/sign-in" class="btn btn-primary btn-sm rounded-pill" href="#" tag="div" role="button">{{$t('common.sign_in')}}</router-link>
-                            <router-link to="/sign-up" class="btn btn-outline-light btn-sm btn-light-shadow rounded-pill" href="#" tag="div" role="button">{{$t('common.sign_up')}}</router-link>
+                            <router-link to="/sign-in" class="btn btn-primary btn-sm rounded-pill" href="#" tag="div"
+                                role="button">{{ $t('common.sign_in') }}</router-link>
+                            <router-link to="/sign-up" class="btn btn-outline-light btn-sm btn-light-shadow rounded-pill"
+                                href="#" tag="div" role="button">{{ $t('common.sign_up') }}</router-link>
                         </li>
                     </template>
                 </ul>
@@ -281,7 +296,7 @@ export default {
 
             langList: [
                 {
-                    value: "en", 
+                    value: "en",
                     label: "English"
                 },
                 {
@@ -293,11 +308,11 @@ export default {
                     label: "繁体中文"
                 },
                 {
-                    value: "kor", 
+                    value: "kor",
                     label: "한국어"
                 },
                 {
-                    value: "jp", 
+                    value: "jp",
                     label: "日本語"
                 },
                 {
@@ -492,13 +507,16 @@ export default {
 <style lang="scss" scoped>
 header {
     @include fs(15);
+
     .logo-text {
         font-weight: bold;
         color: #ffc001;
     }
+
     .no-login {
         @include flexible(row, space-between, center);
         width: 145px;
+
         .btn {
             min-width: 70px;
         }
@@ -508,8 +526,8 @@ header {
         color: #f0a70a;
         border-bottom: 2px solid #f0a70a;
     }
+
     .dropdown {
         padding-top: 5px;
     }
-}
-</style>
+}</style>

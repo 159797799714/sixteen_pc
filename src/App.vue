@@ -31,11 +31,11 @@ export default {
       let current = this.$route.name;
       // 需要切换主题的页面
       let paths = ["option", "second", "exchange","contract"];
-      if (paths.includes(current)) {
+      // if (paths.includes(current)) {
         return this.theme + "-app";
-      } else {
-        return "";
-      }
+      // } else {
+      //   return "";
+      // }
     }
   },
   watch: {
