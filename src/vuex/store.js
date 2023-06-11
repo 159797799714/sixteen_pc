@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        theme: localStorage.theme || 'dark',
+        theme: localStorage.theme || 'light',
         // 获取应用配置
         appConfig: (() => {
             if (localStorage.appConfig) {

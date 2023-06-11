@@ -40,6 +40,14 @@
   background: #172636;
   color: white;
 }
+.light-app #common-header{
+  background: linear-gradient(90deg, #f5f5f5,#d0e2fb) !important;
+  color: #000;
+  .nav-link {
+    color: #666;
+    @include fs(14);
+  }
+}
 header nav a {
    
   color: inherit;

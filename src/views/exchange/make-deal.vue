@@ -1,8 +1,8 @@
 <template>
 <div class="col-md-6">
-    <div class="px-4 py-2 heading">
+    <!-- <div class="px-4 py-2 heading">
          <theme-change/>
-    </div>
+    </div> -->
     <!-- 生成K线图 -->
     <k-line :symbol="symbol" :socket="socket" :priceDecimals="priceDecimals"></k-line>
 

@@ -105,7 +105,7 @@
               </div>
             </div>
           </div>
-          <div><theme-change /></div>
+          <!-- <div><theme-change /></div> -->
         </div>
         <kline
           :activeCoin="{ pair_name: activeContract.pair_name }"

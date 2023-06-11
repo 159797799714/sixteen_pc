@@ -227,4 +227,25 @@
     .border-top{
         border-top-color:#f0f3fa !important;
     }
+    .news{
+        background-color: #f5f5f5!important;
+        color: #000000!important;
+    }
+    .features{
+        background:  #f5f5f5!important;
+        color: #000000!important;
+    }
+    .default{
+        background:  #f5f5f5!important;
+        color: #000000!important;
+    }
+    .ticker-nav .nav-item a.active {
+        @include font(Overpass, 15, null, black, 800);
+        &::after {
+            background: #000000!important;
+        }
+    }
+    li:hover{
+        background:  #f5f5f5!important;
+    }
 }

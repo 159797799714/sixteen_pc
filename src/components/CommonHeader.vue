@@ -1,87 +1,13 @@
 <template>
     <header id="common-header" :class="[`light-bb`, hook]">
         <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="#/">
-                <img :src="appConfig.head_logo" alt="logo" />
-                <!-- <img src="../assets/img/logo-light.png" alt="logo" /> -->
-                <!-- <span class="logo-text">
-                MUFG
-        </span>-->
-            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu"
                 aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="icon ion-md-menu"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="headerMenu">
-                <ul class="navbar-nav mr-auto nav-bar">
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to='home.url'>{{ home.label }}</router-link>
-                    </li>
-
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="exchange.url">{{ exchange.label }}</router-link>
-                    </li>
-
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="option.url">{{ option.label }}</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="second.url">{{ second.label }}</router-link>
-                    </li>
-
-                    <li class="nav-item" v-if="false">
-                        <router-link class="nav-link" :to="market.url">{{ market.label }}</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="contract.url">{{ contract.label }}</router-link>
-                    </li>
-                    <li class="nav-item" v-if="true">
-                        <router-link class="nav-link" :to="purchase.url">{{ purchase.label }}</router-link>
-                    </li>
-                    <!-- <li class="nav-item">
-                    <a href="/newProduct" class="nav-link" target="_blank">{{$t('common.newzone')}}</a>
-                </li> 
                 
-                <li class="nav-item">
-                    <router-link class="nav-link" :to="application.url">{{ application.label }}</router-link>
-          </li>-->
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="college.url">{{ college.label }}</router-link>
-                    </li>
-
-                    <li class="nav-item">
-                        <!-- <router-link class="nav-link" :to="contactUs.url">{{ contactUs.label }}</router-link> -->
-                        <a class="nav-link" :href="appConfig.kefu">{{ contactUs.label }}</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" target="_bank" :href="`https://a3153.live4000.com/Chat/Chat?userID=`">
-                        {{$t('common.onlineServe')}}
-                        </a>
-                    </li> -->
-
-                    <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ blog.label }}
-                    </a>
-                    <div class="dropdown-menu">
-                        <router-link class="dropdown-item" :to="item.url" v-for="(item,index) in blog.links" :key="index">
-                            {{ item.label }}
-                        </router-link>
-                    </div>
-          </li>-->
-
-                    <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ others.label }}
-                    </a>
-                    <div class="dropdown-menu">
-                        <router-link class="dropdown-item" :to="item.url" v-for="(item, index) in others.links" :key="index">
-                            {{ item.label }}
-                        </router-link>
-                    </div>
-          </li> -->
-                </ul>
                 <ul class="navbar-nav">
                     <!-- <li class="nav-item header-custom-icon">
                         <a class="nav-link" href="#" id="clickFullscreen">
@@ -93,19 +19,6 @@
                             夜晚模式
                         </a>
                     </li> -->
-
-                    <li class="nav-item">
-                        <theme-change />
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">{{ nativeLang }}</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href @click.prevent="chooseNative(item.value)"
-                                v-for="(item, index) in langList" :key="index">{{ item.label }}</a>
-                        </div>
-                    </li>
 
                     <template v-if="isLogin">
                         <li class="nav-item dropdown">
@@ -182,8 +95,100 @@
                                 href="#" tag="div" role="button">{{ $t('common.sign_up') }}</router-link>
                         </li>
                     </template>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">{{ nativeLang }}</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href @click.prevent="chooseNative(item.value)"
+                                v-for="(item, index) in langList" :key="index">{{ item.label }}</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item theme-tab dropdown">
+                        <a class="nav-link">
+                        <theme-change />
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto nav-bar">
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to='home.url'>{{ home.label }}</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="second.url">{{ second.label }}</router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="option.url">{{ option.label }}</router-link>
+                    </li>
+
+                    <!-- <li class="nav-item" v-if="false">
+                        <router-link class="nav-link" :to="market.url">{{ market.label }}</router-link>
+                    </li> -->
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="purchase.url">{{ purchase.label }}</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="contract.url">{{ contract.label }}</router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="exchange.url">{{ exchange.label }}</router-link>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a href="/newProduct" class="nav-link" target="_blank">{{$t('common.newzone')}}</a>
+                    </li> 
+                
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="application.url">{{ application.label }}</router-link>
+                    </li>-->
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="college.url">{{ college.label }}</router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <!-- <router-link class="nav-link" :to="contactUs.url">{{ contactUs.label }}</router-link> -->
+                        <a class="nav-link" :href="appConfig.kefu">{{ contactUs.label }}</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" target="_bank" :href="`https://a3153.live4000.com/Chat/Chat?userID=`">
+                        {{$t('common.onlineServe')}}
+                        </a>
+                    </li> -->
+
+                    <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ blog.label }}
+                    </a>
+                    <div class="dropdown-menu">
+                        <router-link class="dropdown-item" :to="item.url" v-for="(item,index) in blog.links" :key="index">
+                            {{ item.label }}
+                        </router-link>
+                    </div>
+          </li>-->
+
+                    <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ others.label }}
+                    </a>
+                    <div class="dropdown-menu">
+                        <router-link class="dropdown-item" :to="item.url" v-for="(item, index) in others.links" :key="index">
+                            {{ item.label }}
+                        </router-link>
+                    </div>
+          </li> -->
                 </ul>
             </div>
+            
+            <a class="navbar-brand" href="#/">
+                <img :src="appConfig.head_logo" alt="logo" />
+                <!-- <img src="../assets/img/logo-light.png" alt="logo" /> -->
+                <!-- <span class="logo-text">
+                MUFG
+        </span>-->
+            </a>
         </nav>
     </header>
 </template>
@@ -530,4 +535,9 @@ header {
     .dropdown {
         padding-top: 5px;
     }
-}</style>
+}
+
+.theme-tab{
+
+}
+</style>

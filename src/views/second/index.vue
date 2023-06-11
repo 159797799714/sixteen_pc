@@ -115,7 +115,7 @@
             </div>
           </div>
           <div class="d-flex align-items-center">
-           <theme-change/>
+           <!-- <theme-change/> -->
             <el-button-group>
               <el-button size="small" :type="tab==1?'primary':''" @click="changeTab(1)">Time</el-button>
               <el-button size="small" :type="tab==2?'primary':''" @click="changeTab(2)">More</el-button>

@@ -39,3 +39,9 @@ export default {
   created() {}
 };
 </script>
+<style>
+.theme-switch{
+  border: 1px solid #cccccc;
+  background: #f5f5f5;
+}
+</style>

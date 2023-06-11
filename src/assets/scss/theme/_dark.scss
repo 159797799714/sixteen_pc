@@ -391,6 +391,13 @@
 #dark .wallet .nav-pills a.active p {
   color: #ffffff;
 }
+#light .wallet button.green,
+#light .wallet button.red,
+#light .wallet .nav-pills a.active h2,
+#light .wallet .nav-pills a.active h3,
+#light .wallet .nav-pills a.active p {
+  color: #000;
+}
 
 #dark .wallet .tab-content li:first-child {
   border-bottom: 1px solid #2a2e39;

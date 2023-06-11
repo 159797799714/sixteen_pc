@@ -1,6 +1,7 @@
 <template>
   <div id="dowebok" ref="dowebok">
-    <div class="section">
+    <!-- <div class="section section-flex"> -->
+    <div class="section  d-flex justify-content-between">
       <div class="banner-block">
         <el-carousel :interval="6000" height="490px">
           <el-carousel-item v-for="item in pcBannerList" :key="item.id">
@@ -8,41 +9,106 @@
           </el-carousel-item>
         </el-carousel>
       </div>
+      
       <!-- 走马灯 -->
-      <div class="marquee">
-        <div class="marquee-pargress d-flex">
-          <ul class="marquee-list d-flex" v-for="box in 4" :key="box">
-            <li
-              class="item border-right"
-              v-for="item in homeList"
-              :key="item.pair + '' + box"
-            >
-              <div class="symbol fn-16 mb-2">{{ item.pair }}</div>
-              <div class="d-flex justify-content-between">
-                <span>{{ item.price }}</span>
-                <span :class="item.increase >= 0 ? 'increace' : 'decreace'">
-                  {{ item.increaseStr }}
-                  <i class="el-icon-caret-top" v-if="item.increase >= 0"></i>
-                  <i class="el-icon-caret-bottom" v-else></i>
-                </span>
-              </div>
-            </li>
-          </ul>
+      <div class="marquee-box">
+        <div class="marquee">
+          <div class="marquee-pargress">
+            <ul class="marquee-list" v-for="box in 4" :key="box">
+              <li
+                class="item border-right"
+                v-for="item in homeList"
+                :key="item.pair + '' + box"
+              >
+                <div class="symbol fn-16 mb-2">{{ item.pair }}</div>
+                <div class="d-flex justify-content-between">
+                  <span>{{ item.price }}</span>
+                  <span :class="item.increase >= 0 ? 'increace' : 'decreace'">
+                    {{ item.increaseStr }}
+                    <i class="el-icon-caret-top" v-if="item.increase >= 0"></i>
+                    <i class="el-icon-caret-bottom" v-else></i>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+
       </div>
     </div>
+
+    <div class="section features">
+      <!-- new-ticker-block -->
+
+      <header>
+        <h3>{{ $t("home.features") }}</h3>
+      </header>
+
+      <aside class="activity-box">
+        <div class="swiper-container">
+          <ul class="swiper-wrapper">
+            <li
+              :class="[`swiper-slide`, { zoom: item.zoom }]"
+              v-for="(item, index) in featuresList"
+              :key="index"
+            >
+              <!-- 鼠标移上去效果 -->
+              <section class="active">
+                <div>
+                  <img :src="item.thumb" width="80" />
+                </div>
+
+                <!-- 标题内容 -->
+                <h3>{{ item.title }}</h3>
+
+                <!-- 固定内容的盒子 -->
+                <section class="light">{{ item.content }}</section>
+              </section>
+
+              <!-- 静止状态样式 -->
+              <section class="default">
+                <!--固定背景的盒子-->
+                <div>
+                  <img :src="item.picture" width="130" />
+                </div>
+                <!-- 标题内容 -->
+                <h3>{{ item.title }}</h3>
+              </section>
+            </li>
+          </ul>
+
+          <!-- Add Arrows -->
+          <!-- 
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> 
+                    -->
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="turning">
+          <!-- Add Arrows -->
+          <a href="javascript:void 0" class="prevBtn"></a>
+          <a href="javascript:void 0" class="nextBtn"></a>
+        </div>
+      </aside>
+    </div>
+
+    
 
     <div class="section markets">
       <div class="new-ticker-block new-ticker-block-section">
         <div class="container">
           <div class="markets__container new-ticker-block-wrap shadow">
             <div class="ticker-head">
-              <ul class="nav nav-tabs ticker-nav" role="tablist">
+              <ul class="nav nav-tabs ticker-nav  f-left" role="tablist">
                 <li class="nav-item">
                   <div class="markets__title">
                     {{ $t("home.marketCenter") }}
                   </div>
                 </li>
+              </ul>
+              <ul class="nav nav-tabs ticker-nav f-right" role="tablist">
                 <li class="nav-item">
                   <a
                     class="nav-link"
@@ -229,86 +295,7 @@
       </div>
     </div>
 
-    <div class="section features">
-      <!-- new-ticker-block -->
-
-      <header>
-        <h3>{{ $t("home.features") }}</h3>
-      </header>
-
-      <aside class="activity-box">
-        <div class="swiper-container">
-          <ul class="swiper-wrapper">
-            <li
-              :class="[`swiper-slide`, { zoom: item.zoom }]"
-              v-for="(item, index) in featuresList"
-              :key="index"
-            >
-              <!-- 鼠标移上去效果 -->
-              <section class="active">
-                <div>
-                  <img :src="item.thumb" width="80" />
-                </div>
-
-                <!-- 标题内容 -->
-                <h3>{{ item.title }}</h3>
-
-                <!-- 固定内容的盒子 -->
-                <section>{{ item.content }}</section>
-              </section>
-
-              <!-- 静止状态样式 -->
-              <section class="default">
-                <!--固定背景的盒子-->
-                <div>
-                  <img :src="item.picture" width="130" />
-                </div>
-                <!-- 标题内容 -->
-                <h3>{{ item.title }}</h3>
-              </section>
-            </li>
-          </ul>
-
-          <!-- Add Arrows -->
-          <!-- 
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div> 
-                    -->
-          <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
-        </div>
-
-        <div class="turning">
-          <!-- Add Arrows -->
-          <a href="javascript:void 0" class="prevBtn"></a>
-          <a href="javascript:void 0" class="nextBtn"></a>
-        </div>
-      </aside>
-    </div>
-    <div class="section">
-      <!-- 多平台下载 -->
-      <div class="multi-platform" ref="platform">
-        <div class="d-flex container">
-          <div class="left text-center d-flex align-items-center">
-            <div class="d-flex flex-column align-items-center">
-              <div class="h2">{{ $t("home.download") }}</div>
-              <div class="tip1">{{ $t("home.easy") }}</div>
-              <div class="qr-code-box">
-                <vue-qr :text="downloadLink" :margin="0" :size="200" />
-                <div class="label">
-                  <img
-                    class="scan-icon"
-                    src="../../assets/img/homescan.png"
-                    alt=""
-                  />
-                  {{ $t("home.skan") }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
     <div class="section news">
       <!-- wallets-section -->
@@ -344,6 +331,32 @@
                 </article>
               </router-link>
             </template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <!-- 多平台下载 -->
+      <div class="multi-platform" ref="platform">
+        <div class="d-flex container">
+          <div class="left text-center d-flex align-items-center">
+            <div class="d-flex flex-column align-items-center">
+              <div class="h2">{{ $t("home.download") }}</div>
+              <div class="tip1">{{ $t("home.easy") }}</div>
+              <div class="qr-code-box">
+                <vue-qr :text="downloadLink" :margin="0" :size="200" />
+                <div class="label">
+                  <img
+                    class="scan-icon"
+                    src="../../assets/img/homescan.png"
+                    alt=""
+                  />
+                  {{ $t("home.skan") }}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -408,10 +421,10 @@ export default {
         {
           zoom: false,
           bgclr: "rgba(76, 48, 115, 1)",
-          picture: require("@/assets/img/features/trade.png"),
-          thumb: require("@/assets/img/features/trade-thumb.png"),
-          title: this.$t("home.stablecoin_title"),
-          content: this.$t("home.stablecoin_cont"),
+          picture: require("@/assets/img/features/tech.png"),
+          thumb: require("@/assets/img/features/tech-thumb.png"),
+          title: this.$t("home.technology_title"),
+          content: this.$t("home.technology_cont"),
         },
         {
           zoom: false,
@@ -420,6 +433,22 @@ export default {
           thumb: require("@/assets/img/features/safe-thumb.png"),
           title: this.$t("home.security_title"),
           content: this.$t("home.security_cont"),
+        },
+        {
+          zoom: false,
+          bgclr: "rgba(76, 48, 115, 1)",
+          picture: require("@/assets/img/features/trade.png"),
+          thumb: require("@/assets/img/features/trade-thumb.png"),
+          title: this.$t("home.stablecoin_title"),
+          content: this.$t("home.stablecoin_cont"),
+        },
+        {
+          zoom: false,
+          bgclr: "rgba(93, 46, 93, 1)",
+          picture: require("@/assets/img/features/flow.png"),
+          thumb: require("@/assets/img/features/flow-thumb.png"),
+          title: this.$t("home.liquidity_title"),
+          content: this.$t("home.liquidity_cont"),
         },
         {
           zoom: false,
@@ -436,22 +465,6 @@ export default {
           thumb: require("@/assets/img/features/analysis-thumb.png"),
           title: this.$t("home.analy_title"),
           content: this.$t("home.analy_cont"),
-        },
-        {
-          zoom: false,
-          bgclr: "rgba(76, 48, 115, 1)",
-          picture: require("@/assets/img/features/tech.png"),
-          thumb: require("@/assets/img/features/tech-thumb.png"),
-          title: this.$t("home.technology_title"),
-          content: this.$t("home.technology_cont"),
-        },
-        {
-          zoom: false,
-          bgclr: "rgba(93, 46, 93, 1)",
-          picture: require("@/assets/img/features/flow.png"),
-          thumb: require("@/assets/img/features/flow-thumb.png"),
-          title: this.$t("home.liquidity_title"),
-          content: this.$t("home.liquidity_cont"),
         },
       ];
     },
@@ -512,6 +525,7 @@ export default {
         .catch((res) => {});
     },
     skroll() {
+      return
       let skro = this.skro;
 
       skro
@@ -783,12 +797,21 @@ export default {
   @include flexible(row, center, center);
 
   &::after {
-    width: 6px;
+    width: 20px;
     height: 6px;
     background: white;
-    border-radius: 50%;
+    border-radius: 3px;
   }
 }
+.light-app .ticker-nav .nav-item a.active {
+  @include font(Overpass, 15, null, black, 800);
+  @include flexible(row, center, center);
+
+  &::after {
+    background: #000;
+  }
+}
+
 
 .start-trade {
   background: #fd5b2c !important;
@@ -802,10 +825,15 @@ export default {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
+.marquee-box{
+  width: 200px;
+  height: 490px;
+  overflow: hidden;
 .marquee {
   li.item {
     padding: 10px 18px !important;
   }
+}
 }
 
 .markets {
@@ -822,6 +850,9 @@ export default {
     margin: 50px auto 50px; // 居中
   }
 }
+.light-app .markets__title{
+  color: #000;
+}
 
 .features {
   width: 100%;
@@ -835,6 +866,12 @@ export default {
   // 超出的部分被裁剪
   background-size: auto 100%;
   color: white;
+}
+.light-app .features {
+  color: #000!important;
+.active{
+  color: #000!important;
+}  
 }
 
 .features header {
@@ -926,12 +963,26 @@ export default {
       padding: 0 20px;
       height: 100%;
       // display: none; // 初始化隐藏
-      @include font(Overpass, 14, 24, white);
+      // @include font(Overpass, 14, 24, white);
       // text-indent: 20px;
       text-align: left;
     }
   }
 }
+.light-app .li:hover {
+    background: #222e3d!important;
+    border: 1px solid #222e3d!important;
+    color: #333!important;
+    section {
+      color: #000!important;
+    }
+  }
+  .dark-app .li:hover {
+    section {
+      color: #fff!important;
+    }
+  }
+
 
 .my-button-disabled {
   opacity: 0.2;
@@ -1031,4 +1082,15 @@ export default {
     // }
   }
 }
+
+.banner-block{
+  flex: 1;
+}
+.f-left{
+  float: left;
+}
+.f-right{
+  float: right;
+}
+
 </style>

@@ -96,7 +96,7 @@ export default {
 @import './assets/scss/base/_base.scss';
 @import './assets/scss/module/_module.scss';
 .home-bg {
-  background: #172636 !important;
+  background: linear-gradient(90deg, #2a292b,#59585c) !important;
   border: none !important;
   // height: 100px;
   .nav-link {
@@ -109,5 +109,19 @@ export default {
       color: #18214d !important;
     }
   }
+}
+.light-app .home-bg{
+  background: linear-gradient(90deg, #f5f5f5,#d0e2fb) !important;
+  
+  .nav-link {
+    color: #000;
+    @include fs(14);
+  }
+  .profile-nav {
+    a {
+      color: #f5f5f5 !important;
+    }
+  }
+  
 }
 </style>

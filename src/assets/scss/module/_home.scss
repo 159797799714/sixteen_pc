@@ -315,6 +315,9 @@ textarea:focus {
   padding: 60px 0 60px 0;
   background:#141e2c;
 }
+.light-app .new-ticker-block-section {
+  background:#fff;
+}
 
 .new-ticker-block-section .coin-list th,
 .new-ticker-block-section .coin-list tr {
@@ -388,9 +391,12 @@ textarea:focus {
     position: absolute;
     bottom: 3px;
     left: 50%;
-    margin-left: -3px;
+    margin-left: -10px;
   }
 
+}
+.white-app a.active{
+  color: #000!important;
 }
 
 .ticker-nav .nav-item a.active h5 {
@@ -482,12 +488,41 @@ textarea:focus {
   color: #9292AC;
   padding: 18px 15px;
   &:nth-last-of-type(1),&:nth-last-of-type(2),&:nth-last-of-type(3){
-    color: white;
+    // color: white;
   }
 }
 
 .coin-list tbody tr td b {
   color: #a2a2a2;
+}
+
+.light-app .coin-list{
+   tbody tr {
+    background: #f5f5f5;
+  
+    &:nth-of-type(2n) {
+      background: #e3e1d1;
+    }
+  }
+  
+   tbody tr:hover {
+    background: #f5f5f5;
+  
+    &:nth-of-type(2n) {
+      background:#e3e1d1;
+    }
+  }
+  
+   tbody tr td {
+    color: #9292AC;
+    &:nth-last-of-type(1),&:nth-last-of-type(2),&:nth-last-of-type(3){
+      // color: white;
+    }
+  }
+  
+   tbody tr td b {
+    color: #3c3c3c;
+  }
 }
 
 .favorite-coin {
@@ -3722,6 +3757,9 @@ sub.transmoney-value {
 .footer {
   background: #172636;
 }
+.light-app .footer {
+  background: linear-gradient(180deg, #999, #172636);
+}
 
 .footer-upper-section {
   padding: 70px 0;
@@ -3869,7 +3907,7 @@ sub.transmoney-value {
 
   .marquee-pargress {
     width: 200%;
-    animation: marquee 40s infinite linear;
+    animation: marquee 50s infinite linear;
   }
 
   .marquee-list {
@@ -3882,6 +3920,9 @@ sub.transmoney-value {
       &.border-right{
         border-color: #4E4E5D !important;
       }
+      &:hover {
+        background-color: #999999;
+      }
     }
 
   }
@@ -3893,13 +3934,35 @@ sub.transmoney-value {
   }
 }
 
+
+.light-app{
+  .marquee {
+
+    .marquee-list {
+      background:#f5f5f5!important;
+      color:black!important;
+      .item {
+        &.border-right{
+          border-color: #999 !important;
+        }
+        &:hover {
+          background-color: #ccc!important;
+        }
+      }
+
+    }
+  }  
+}
+
+
+
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -3994,6 +4057,17 @@ sub.transmoney-value {
         max-height: 120px;
         opacity: 1;
       }
+    }
+  }
+}
+
+.light-app .activity-box {
+
+  .activity-slide {
+    background-color: #000!important;
+
+    &:hover {
+      background-color: #333!important;
     }
   }
 }
